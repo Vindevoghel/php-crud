@@ -1,19 +1,15 @@
 <?php
 declare(strict_types = 1);
 
+require "keycodes.php";
+
 ini_set('display_errors', "1");
 ini_set('display_startup_errors', "1");
 error_reporting(E_ALL);
 
 function OpenConnection() {
 
-    $servername = "localhost";
-    $username = "jeroen_editing";
-    $password = "webontwerpen";
-    $dbname = "becode";
-
-    // Try to understand what happens here
-    $pdo = new PDO("mysql:host=localhost;dbname=becode", $username, $password);
+    $pdo = new PDO("mysql:host=$servername;$dbname", $username, $password);
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

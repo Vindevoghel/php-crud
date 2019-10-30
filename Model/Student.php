@@ -5,5 +5,9 @@ require 'User.php';
 
 class Student extends User
 {
-    private $teacherID;
+    public function sendToDB($connection)
+    {
+        $sqlCmd = 'INSERT INTO BeCodeDUO.student (first_name, last_name, email, classID) VALUES (:first_name, :last_name, :email, :classID)';
+        $connection->prepare($sqlCmd)->execute([$this->firstName, $this->lastName, $this->email, $this->classID]);
+    }
 }

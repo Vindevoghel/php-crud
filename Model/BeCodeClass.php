@@ -1,6 +1,5 @@
 <?php
 
-
 class BeCodeClass
 {
     private $classID;
@@ -11,6 +10,11 @@ class BeCodeClass
     {
         $this->name = $name;
         $this->location = $location;
+    }
+
+    public function sendToDB($connection) {
+        $sqlCmd = 'INSERT INTO BeCodeDUO.class (name, location) VALUES (:name, :location)';
+        $connection->prepare($sqlCmd)->execute([$this->name, $this->location]);
     }
 
     /**

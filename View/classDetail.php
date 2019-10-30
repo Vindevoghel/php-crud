@@ -1,7 +1,10 @@
 <?php
 require '../Connection.php';
 require '../Controller/HomepageController.php';
+$classID = $_GET['classID'];
 
+$classStudents = $openConnection->query('SELECT * FROM BeCodeDUO.student WHERE classID='. $classID);
+$classTeachers = $openConnection->query('SELECT * FROM BeCodeDUO.teacher WHERE classID='. $classID);
 ?>
 
 <!doctype html>
@@ -20,13 +23,13 @@ require '../Controller/HomepageController.php';
     <style>
         td {
             width: 200px;
-            text-align: right;
+            text-align: left;
             border: 2px solid darkolivegreen;
         }
 
         th {
             width: 200px;
-            text-align: left;
+            text-align: right;
             border: 2px solid darkolivegreen;
         }
     </style>
@@ -39,25 +42,47 @@ require '../Controller/HomepageController.php';
     <table>
         <thead>
         <tr>
-            <th>Class ID</th>
-            <th>Class Name</th>
-            <th>Class Location</th>
-            <th>Detailed View</th>
+            <th>Teacher ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>email</th>
         </tr>
         </thead>
         <tbody>
         <?php
-        $sqlClass = 'SELECT * FROM BeCodeDUO.class ORDER BY classID';
-        foreach ($openConnection->query($sqlClass) as $row): ?>
+        foreach ($classTeachers as $row): ?>
             <tr>
-                <td><?php echo $row['classID'] ?></td>
-                <td><?php echo $row['name'] ?></td>
-                <td><?php echo $row['location'] ?></td>
-                <td><?php echo '<a href="/View/classDetail.php?classID='.$row['classID'].'">More info</a>'; ?></td>
+                <td><?php echo $row['teacherID'] ?></td>
+                <td><?php echo $row['first_name'] ?></td>
+                <td><?php echo $row['last_name'] ?></td>
+                <td><?php echo $row['email']; ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
     </table>
+    <br>
+    <table>
+        <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        foreach ($classStudents as $studentRow): ?>
+            <tr>
+                <td><?php echo $studentRow['studentID'] ?></td>
+                <td><?php echo $studentRow['first_name'] ?></td>
+                <td><?php echo $studentRow['last_name'] ?></td>
+                <td><?php echo $studentRow['email']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
 </section>
 <?php require 'includes/footer.php' ?>
 </body>

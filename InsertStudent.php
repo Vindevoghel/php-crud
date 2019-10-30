@@ -1,6 +1,6 @@
 <?php
 
-require 'connection.php';
+require 'Connection.php';
 
 
 if(isset($_POST['firstName'], $_POST['lastName'], $_POST['class'], $_POST['location'], $_POST['teacherFirstName'], $_POST['teacherLastName'])) {
@@ -8,21 +8,16 @@ if(isset($_POST['firstName'], $_POST['lastName'], $_POST['class'], $_POST['locat
 
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
+    $email = $_POST['email'];
     $class = $_POST['class'];
-    $location = $_POST['location'];
-    $teacherFirstName = $_POST['teacherFirstName'];
-    $teacherLastName = $_POST['teacherLastName'];
 
-
-    $newStudent = $openConnection->prepare("INSERT INTO students (first_name, last_name, class, location, teacher_first_name, teachet_last_name)
-    VALUES (:first_name, :last_name, :class, :location, :teacher_first_name, :teachet_last_name)");
+    $newStudent = $openConnection->prepare("INSERT INTO student (first_name, last_name, email, class,)
+    VALUES (:first_name, :last_name, :emal, :class)");
 
     $newStudent->bindParam('first_name', $firstName);
     $newStudent->bindParam('last_name', $lastName);
+    $newStudent->bindParam('email', $email);
     $newStudent->bindParam('class', $class);
-    $newStudent->bindParam('location', $location);
-    $newStudent->bindParam('teacher_first_name', $teacherFirstName);
-    $newStudent->bindParam('teacher_first_name', $teacherLastName);
 
     $newStudent->execute();
 
@@ -43,13 +38,17 @@ if(isset($_POST['firstName'], $_POST['lastName'], $_POST['class'], $_POST['locat
             margin-left: 40px;
         }
         button {
-            height: 36px;
+            height: 34px;
             width: 200px;
-            padding-top: 4px;
-            font-size: 22px;
+
+            font-size: 20px;
             font-weight: bold;
+            border: 2px solid darkslategray;
             border-radius: 4px;
             background-color: lightseagreen;
+        }
+        button:hover {
+            background-color: limegreen;
         }
     </style>
 </head>
@@ -65,22 +64,17 @@ if(isset($_POST['firstName'], $_POST['lastName'], $_POST['class'], $_POST['locat
             <input name="lastName" class="form-control mb-1" required>
         </label><br><br>
 
+        <label for="email">E-mail:
+            <input name="lastName" class="form-control mb-1" required>
+        </label>
         <label for="class">Class:
-            <input name="lastName" class="form-control mb-1" required>
-        </label>
-        <label for="class">Location:
-            <input name="lastName" class="form-control mb-1" required>
-        </label><br><br>
-
-        <label for="firstName">Teacher First Name:
-            <input name="teacherFirstName" class="form-control mb-1" required>
-        </label>
-        <label for="lastName">Teacher Last Name:
-            <input name="teacherLastName" class="form-control mb-1" required>
+            <select name="class" class="form-control mb-1">
+                <option value="1">Lamarr</option>
+            </select>
         </label><br><br>
 
         <label for="submit">Add to list:
-            <button type="submit" name="submit" class="btn btn-success">ADD STUDENT</button>
+            <button type="submit" name="submit" class="submitButton">ADD STUDENT</button>
         </label><br><br>
 
     </form>

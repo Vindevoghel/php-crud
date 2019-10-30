@@ -19,21 +19,15 @@ require '../Controller/HomepageController.php';
             crossorigin="anonymous"></script>
     <title>Becode / Students, Class list</title>
     <style>
-        label, h4 {
-            margin-left: 40px;
-        }
-        button {
-            height: 34px;
+        td {
             width: 200px;
-
-            font-size: 20px;
-            font-weight: bold;
-            border: 2px solid darkslategray;
-            border-radius: 4px;
-            background-color: lightseagreen;
+            text-align: right;
+            border: 2px solid darkolivegreen;
         }
-        button:hover {
-            background-color: limegreen;
+        th {
+            width: 200px;
+            text-align: left;
+            border: 2px solid darkolivegreen;
         }
     </style>
 </head>
@@ -42,15 +36,27 @@ require '../Controller/HomepageController.php';
     <section>
         <h4>Hello <?php //echo $user->getName()?>,</h4>
         <p>Put your content here.</p>
-        <label for="submit">Go to:
-            <button type="submit" name="submit" class="studentsList">STUDENTS LIST</button>
-        </label>
-        <label for="submit">Go to:
-            <button type="submit" name="submit" class="teachersList">TEACHERS LIST</button>
-        </label>
-        <label for="submit">Got to:
-            <button type="submit" name="submit" class="classList">CLASS LIST</button>
-        </label>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            $sqlClass = 'SELECT * FROM BeCodeDUO.student ORDER BY classID';
+            foreach ($openConnection->query($sqlClass) as $row): ?>
+            <tr>
+                    <td><?php echo $row['first_name'] ?></td>
+                    <td><?php echo $row['last_name'] ?></td>
+                    <td><?php echo  $row['email'] ?></td>
+                    </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
     </section>
     <?php require 'includes/footer.php'?>
 </body>

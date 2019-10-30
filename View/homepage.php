@@ -1,10 +1,3 @@
-<?php
-require '../Connection.php';
-require '../Controller/HomepageController.php';
-
-?>
-
-
 <!doctype html>
 <html lang="en">
 <head>

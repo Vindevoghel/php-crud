@@ -1,9 +1,8 @@
 <?php
-declare(strict_types = 1);
 
-class HomepageController
+
+class ClassController
 {
-    //render function with both $_GET and $_POST vars available if it would be needed.
     public function render(array $GET, array $POST)
     {
         //this is just example code, you can remove the line below
@@ -12,6 +11,6 @@ class HomepageController
         // then the view will actually display them.
 
         //load the view
-        require 'View/homepage.php';
+        require 'View/class.php';
     }
 }

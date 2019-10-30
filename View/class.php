@@ -1,5 +1,6 @@
 <?php
 require '../Connection.php';
+require '../Model/BeCodeClass.php';
 require '../Controller/HomepageController.php';
 
 ?>

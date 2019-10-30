@@ -1,8 +1,10 @@
 <?php
-require '../connection.php';
+require '../Connection.php';
 require '../Controller/HomepageController.php';
 
 $sql = $openConnection->query('SELECT * FROM student ')->fetchAll();
+
+echo 'hello server';
 
 ?>
 
@@ -52,12 +54,10 @@ $sql = $openConnection->query('SELECT * FROM student ')->fetchAll();
             <tbody>
             <?php foreach ($sql as $row) {
                 echo "<tr>
+                    <td>{$row['student_id']}</td>
                     <td>{$row['first_name']}</td>
                     <td>{$row['last_name']}</td>
-                    <td>{$row['class']}</td>
-                    <td>{$row['location']}</td>
-                    <td>{$row['teacher_first_name']}</td>
-                    <td>{$row['teacher_last_name']}</td>
+                    <td>{$row['email']}</td>
                     </tr>";
             } ?>
             </tbody>

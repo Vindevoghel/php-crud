@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 
 function OpenConnection($serverName, $dbName, $userName, $passWord) {
 
-    $pdo = new PDO("mysql:host=$serverName;$dbName", $userName, $passWord);
+    $pdo = new PDO('mysql:host=' . $serverName . ';dbname=' . $dbName, $userName, $passWord);
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -20,14 +20,6 @@ function OpenConnection($serverName, $dbName, $userName, $passWord) {
     if ($dbconnect->connect_error) {
         die("Database connection failed: " . $dbconnect->connect_error);
     }
-    $stmt = $pdo->prepare('SELECT first_name FROM student WHERE id = :id');
-
-    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-
-    $stmt->execute();
-
 
     return $pdo;
 }

@@ -36,7 +36,7 @@ $sql = $openConnection->query('SELECT * FROM student ')->fetchAll();
 <body>
     <?php require 'includes/header.php'?>
     <section>
-        <h4>Hello <?php echo $user->getName()?>,</h4>
+        <h4>Hello <?php //echo $user->getName()?>,</h4>
         <p>Put your content here.</p>
         <table>
             <thead>
@@ -49,17 +49,19 @@ $sql = $openConnection->query('SELECT * FROM student ')->fetchAll();
                     <th>Teacher Last Name</th>
                 </tr>
             </thead>
+            <tbody>
             <?php foreach ($sql as $row) {
-                echo "<tbody><tr>
+                echo "<tr>
                     <td>{$row['first_name']}</td>
                     <td>{$row['last_name']}</td>
                     <td>{$row['class']}</td>
                     <td>{$row['location']}</td>
                     <td>{$row['teacher_first_name']}</td>
                     <td>{$row['teacher_last_name']}</td>
-                    </tr>\n </tbody>";
+                    </tr>";
             } ?>
-
+            </tbody>
+        </table>
     </section>
     <?php require 'includes/footer.php'?>
 </body>

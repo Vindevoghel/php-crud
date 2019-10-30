@@ -1,10 +1,3 @@
-<?php
-require '../Connection.php';
-require '../Model/BeCodeClass.php';
-require '../Controller/HomepageController.php';
-
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,32 +27,8 @@ require '../Controller/HomepageController.php';
 </head>
 <body>
 <?php require 'includes/header.php' ?>
-<section>
-    <h4>Hello <?php //echo $user->getName()?>,</h4>
-    <p>Put your content here.</p>
-    <table>
-        <thead>
-        <tr>
-            <th>Class ID</th>
-            <th>Class Name</th>
-            <th>Class Location</th>
-            <th>Detailed View</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        $sqlClass = 'SELECT * FROM BeCodeDUO.class ORDER BY classID';
-        foreach ($openConnection->query($sqlClass) as $row): ?>
-            <tr>
-                <td><?php echo $row['classID'] ?></td>
-                <td><?php echo $row['name'] ?></td>
-                <td><?php echo $row['location'] ?></td>
-                <td><?php echo '<a href="/View/classDetail.php?classID='.$row['classID'].'">More info</a>'; ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-</section>
+<?php require 'includes/classForm.php' ?>
+<?php require 'includes/classTable.php' ?>
 <?php require 'includes/footer.php' ?>
 </body>
 </html>

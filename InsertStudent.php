@@ -3,7 +3,7 @@
 require 'Connection.php';
 
 
-if(isset($_POST['firstName'], $_POST['lastName'], $_POST['class'], $_POST['location'], $_POST['teacherFirstName'], $_POST['teacherLastName'])) {
+if(isset($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['class'])) {
 
 
     $firstName = $_POST['firstName'];
@@ -11,13 +11,13 @@ if(isset($_POST['firstName'], $_POST['lastName'], $_POST['class'], $_POST['locat
     $email = $_POST['email'];
     $class = $_POST['class'];
 
-    $newStudent = $openConnection->prepare("INSERT INTO student (first_name, last_name, email, class,)
+    $newStudent = $openConnection->prepare("INSERT INTO BeCodeDUO.student (first_name, last_name, email, classID)
     VALUES (:first_name, :last_name, :emal, :class)");
 
     $newStudent->bindParam('first_name', $firstName);
     $newStudent->bindParam('last_name', $lastName);
     $newStudent->bindParam('email', $email);
-    $newStudent->bindParam('class', $class);
+    $newStudent->bindParam('classID', $class);
 
     $newStudent->execute();
 
@@ -57,25 +57,30 @@ if(isset($_POST['firstName'], $_POST['lastName'], $_POST['class'], $_POST['locat
 <div class="container">
     <h1 class="jumbotron-heading">Student Registration Form</h1>
     <form method="post">
-        <label for="firstName">First Name:
-            <input name="firstName" class="form-control mb-1" required>
-        </label>
-        <label for="lastName">Last Name:
-            <input name="lastName" class="form-control mb-1" required>
-        </label><br><br>
-
+        <fieldset><legend>name</legend>
+            <label for="firstName">First Name:
+                <input name="firstName" class="form-control mb-1" required>
+            </label>
+            <label for="lastName">Last Name:
+                <input name="lastName" class="form-control mb-1" required>
+            </label>
+        </fieldset><br>
+        <fieldset>
         <label for="email">E-mail:
             <input name="lastName" class="form-control mb-1" required>
         </label>
         <label for="class">Class:
             <select name="class" class="form-control mb-1">
-                <option value="1">Lamarr</option>
+                <?php $sqlClass = 'SELECT * FROM BeCodeDUO.class ORDER BY classID';
+                    foreach ($openConnection->query($sqlClass) as $row): ?>
+                <option value="<?php echo $row['classID']?>"><?php echo $row['name'] ?></option>
+                <?php endforeach; ?>
             </select>
-        </label><br><br>
-
-        <label for="submit">Add to list:
+        </label>
+        </fieldset><br>
+            <label for="submit">Add to list:
             <button type="submit" name="submit" class="submitButton">ADD STUDENT</button>
-        </label><br><br>
+            </label>
 
     </form>
 

@@ -47,7 +47,7 @@ require '../Controller/HomepageController.php';
             </thead>
             <tbody>
             <?php
-            $sqlClass = 'SELECT * FROM BeCodeDUO.student ORDER BY classID';
+            $sqlStudent = 'SELECT * FROM BeCodeDUO.student ORDER BY classID';
             foreach ($openConnection->query($sqlClass) as $row): ?>
             <tr>
                     <td><?php echo $row['first_name'] ?></td>

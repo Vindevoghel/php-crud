@@ -17,3 +17,4 @@ class StudentController
         require 'View/student.php';
     }
 }
+

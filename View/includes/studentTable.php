@@ -11,8 +11,7 @@
         </thead>
 
         <tbody>
-            <?php $sqlStudent = 'SELECT * FROM BeCodeDUO.student ORDER BY classID';
-            foreach ($openConnection->query($sqlStudent) as $row): ?>
+            <?php foreach ($connection->getStudents() as $row): ?>
             <tr>
                 <td><?php echo $row['first_name'] ?></td>
                 <td><?php echo $row['last_name'] ?></td>

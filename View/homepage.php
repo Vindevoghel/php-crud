@@ -44,9 +44,8 @@
 </head>
 <body>
     <?php require 'includes/header.php'?>
-    <section>
-        <?php require 'includes/homepageSelect.php' ?>
-    </section>
+    <br>
+    <?php require 'includes/homepageSelect.php' ?>
     <?php require 'includes/footer.php'?>
 </body>
 </html>

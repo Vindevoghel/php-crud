@@ -45,6 +45,7 @@
 </head>
 <body>
 <?php require 'includes/header.php' ?>
+<br>
 <?php require 'includes/studentForm.php' ?>
 <?php require 'includes/studentTable.php' ?>
 <?php require 'includes/footer.php' ?>

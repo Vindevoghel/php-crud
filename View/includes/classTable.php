@@ -7,6 +7,7 @@
             <th>Class Name</th>
             <th>Class Location</th>
             <th>Delete Button</th>
+            <th>Edit Button</th>
         </tr>
         </thead>
 
@@ -23,9 +24,8 @@
                     </form>
                 </td>
                 <td>
-                    <form method="post">
-                        <input type="hidden" name="editButton" value="<?php echo $row['classID']; ?>" />
-                        <input type="submit" id="edit" value="Delete <?php echo $row['name']; ?>">
+                    <form method="post" action="/index.php?page=edit&classID=<?php echo $row['classID']; ?>">
+                        <input type="submit" id="edit" value="Edit <?php echo $row['name']; ?>">
                     </form>
                 </td>
             </tr>

@@ -14,6 +14,7 @@ require 'Controller/ClassController.php';
 require 'Controller/HomepageController.php';
 require 'Controller/StudentController.php';
 require 'Controller/TeacherController.php';
+require 'Controller/EditController.php';
 $connection = new SQLConnect($serverName, $dbName, $userName, $passWord);
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
@@ -27,7 +28,10 @@ if (isset($_GET['page'])) {
         $controller = new ClassController();
     } else if($_GET['page'] === 'home') {
         $controller = new HomepageController();
+    } else if($_GET['page'] === 'edit') {
+        $controller = new EditController();
     }
 }
+
 
 $controller->render($_GET, $_POST, $connection);

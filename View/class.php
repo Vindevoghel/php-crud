@@ -44,6 +44,7 @@
 </head>
 <body>
 <?php require 'includes/header.php' ?>
+<br>
 <?php require 'includes/classForm.php' ?>
 <?php require 'includes/classTable.php' ?>
 <?php require 'includes/footer.php' ?>

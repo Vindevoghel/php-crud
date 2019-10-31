@@ -28,7 +28,7 @@
         footer {
             margin-left: 140px;
         }
-        .submitButton {
+        .submitButton, #delete {
             height: 34px;
             width: 200px;
             font-size: 20px;
@@ -37,7 +37,7 @@
             border-radius: 4px;
             background-color: lightseagreen;
         }
-        .submitButton:hover {
+        .submitButton:hover, #delete:hover {
             background-color: limegreen;
         }
     </style>

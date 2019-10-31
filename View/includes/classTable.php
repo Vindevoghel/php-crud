@@ -19,7 +19,7 @@
                 <td>
                     <form method="post">
                         <input type="hidden" name="deleteButton" value="<?php echo $row['classID']; ?>" />
-                        <input type="submit" value="Delete <?php echo $row['name']; ?>">
+                        <input type="submit" id="delete" value="Delete <?php echo $row['name']; ?>">
                     </form>
                 </td>
             </tr>

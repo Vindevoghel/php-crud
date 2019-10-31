@@ -7,6 +7,7 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Class</th>
+                <th>Delete button</th>
             </tr>
         </thead>
 
@@ -17,6 +18,12 @@
                 <td><?php echo $row['last_name'] ?></td>
                 <td><?php echo $row['email'] ?></td>
                 <td><?php echo $row['classID'] ?></td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="deleteButton" value="<?php echo $row['classID']; ?>" />
+                        <input type="submit" id="delete" value="Delete <?php echo $row['first_name']; ?>">
+                    </form>
+                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

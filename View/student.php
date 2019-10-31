@@ -29,7 +29,7 @@
         footer {
             margin-left: 140px;
         }
-        button {
+        button, #delete {
             height: 34px;
             width: 200px;
             font-size: 20px;
@@ -38,7 +38,7 @@
             border-radius: 4px;
             background-color: lightseagreen;
         }
-        button:hover {
+        button:hover, #delete:hover {
             background-color: limegreen;
         }
     </style>

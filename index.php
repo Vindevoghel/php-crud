@@ -15,6 +15,7 @@ require 'Controller/HomepageController.php';
 $connection = new SQLConnect($serverName, $dbName, $userName, $passWord);
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
+$controller = new HomepageController();
 if (isset($_GET['page'])) {
     if ($_GET['page'] === 'students') {
         $controller = new StudentController();
@@ -22,9 +23,9 @@ if (isset($_GET['page'])) {
         $controller = new TeacherController();
     } else if ($_GET['page'] === 'class') {
         $controller = new ClassController();
+    } else if($_GET['page'] === 'home') {
+        $controller = new HomepageController();
     }
-} else {
-    $controller = new HomepageController();
 }
 
 $controller->render($_GET, $_POST, $connection);

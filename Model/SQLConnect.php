@@ -34,5 +34,19 @@ class SQLConnect
         return $this->pdo->query($sql);
     }
 
+    public function getStudents() {
+        $sql = 'SELECT * FROM BeCodeDUO.student ORDER BY studentID';
+        return $this->pdo->query($sql);
+    }
+
+    public function getTeachers() {
+        $sql = 'SELECT * FROM BeCodeDUO.teacher ORDER BY teacherID';
+        return $this->pdo->query($sql);
+    }
+
+    public function deleteClass($_classID) {
+        $sql = 'DELETE FROM BeCodeDUO.class WHERE classID=' . $_classID;
+    }
+
 
 }

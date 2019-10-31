@@ -7,9 +7,9 @@
         <th>Detailed View</th>
     </tr>
     </thead>
+
     <tbody>
-    <?php
-    foreach ($connection->getClasses() as $row): ?>
+        <?php foreach ($connection->getClasses() as $row): ?>
         <tr>
             <td><?php echo $row['classID'] ?></td>
             <td><?php echo $row['name'] ?></td>

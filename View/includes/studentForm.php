@@ -1,10 +1,8 @@
 <?php
-
+/*
 require 'Connection.php';
 
-
 if(isset($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['class'])) {
-
 
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -20,11 +18,16 @@ if(isset($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['class
     $newStudent->bindParam('classID', $class);
 
     $newStudent->execute();
+}
+*/
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $newStudent = new Student($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['class']);
+    $newStudent->sendToDB($openConnection);
 }
 
 ?>
-
+<!--
 <!doctype html>
 <html lang="en">
 <head>
@@ -53,23 +56,24 @@ if(isset($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['class
     </style>
 </head>
 <body>
+-->
 
 <div class="container">
     <h1 class="jumbotron-heading">Student Registration Form</h1>
-    <form method="post">
-        <fieldset><legend>name</legend>
-            <label for="firstName">First Name:
+    <form method="POST">
+        <fieldset><legend>Student Name</legend>
+            <label for="firstName">First Name: <br>
                 <input name="firstName" class="form-control mb-1" required>
             </label>
-            <label for="lastName">Last Name:
+            <label for="lastName">Last Name: <br>
                 <input name="lastName" class="form-control mb-1" required>
             </label>
         </fieldset><br>
-        <fieldset>
-        <label for="email">E-mail:
-            <input name="lastName" class="form-control mb-1" required>
-        </label>
-        <label for="class">Class:
+        <fieldset><legend>Student Info</legend>
+            <label for="email">E-mail: <br>
+                <input name="lastName" class="form-control mb-1" required>
+            </label>
+        <label for="class">Class: <br>
             <select name="class" class="form-control mb-1">
                 <?php $sqlClass = 'SELECT * FROM BeCodeDUO.class ORDER BY classID';
                     foreach ($openConnection->query($sqlClass) as $row): ?>
@@ -78,11 +82,14 @@ if(isset($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['class
             </select>
         </label>
         </fieldset><br>
-            <label for="submit">Add to list:
-            <button type="submit" name="submit" class="submitButton">ADD STUDENT</button>
+            <label for="submit">Add to list: <br>
+                <button type="submit" value="Create new student" class="submitButton">ADD STUDENT</button>
             </label>
-
+    <
     </form>
+</div>
 
+<!--
 </body>
 </html>
+-->

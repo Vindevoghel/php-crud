@@ -1,10 +1,3 @@
-<?php
-require '../Connection.php';
-require '../Controller/HomepageController.php';
-
-?>
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,13 +10,14 @@ require '../Controller/HomepageController.php';
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <title>Becode / Students, Class list</title>
+    <title>BeCode Classes</title>
     <style>
         td {
             width: 200px;
             text-align: right;
             border: 2px solid darkolivegreen;
         }
+
         th {
             width: 200px;
             text-align: left;
@@ -32,32 +26,9 @@ require '../Controller/HomepageController.php';
     </style>
 </head>
 <body>
-    <?php require 'includes/header.php'?>
-    <section>
-        <h4>Hello <?php //echo $user->getName()?>,</h4>
-        <p>Put your content here.</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-
-                </tr>
-            </thead>
-            <tbody>
-            <?php
-            $sqlStudent = 'SELECT * FROM BeCodeDUO.student ORDER BY classID';
-            foreach ($openConnection->query($sqlStudent) as $row): ?>
-            <tr>
-                    <td><?php echo $row['first_name'] ?></td>
-                    <td><?php echo $row['last_name'] ?></td>
-                    <td><?php echo  $row['email'] ?></td>
-                    </tr>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </section>
-    <?php require 'includes/footer.php'?>
+<?php require 'includes/header.php' ?>
+<?php require 'includes/studentForm.php' ?>
+<?php require 'includes/studentTable.php' ?>
+<?php require 'includes/footer.php' ?>
 </body>
 </html>

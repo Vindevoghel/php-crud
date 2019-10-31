@@ -33,8 +33,9 @@
 <body>
     <?php require 'includes/header.php'?>
     <section>
-        <h4>Hello <?php //echo $user->getName()?>,</h4>
-        <p>Put your content here.</p>
+        <?php require 'select.php' ?>
+        <!--
+        <h4>Select the list you need<?php //echo $user->getName()?>,</h4>
         <label for="submit">Go to:
             <button type="submit" name="submit" class="studentsList">STUDENTS LIST</button>
         </label>
@@ -44,6 +45,7 @@
         <label for="submit">Got to:
             <button type="submit" name="submit" class="classList">CLASS LIST</button>
         </label>
+        -->
     </section>
     <?php require 'includes/footer.php'?>
 </body>

@@ -54,6 +54,23 @@ class SQLConnect
         return $this->pdo->query($sql);
     }
 
+    public function updateClassField($_columnName, $_newValue, $_condition){
+        $sql = 'UPDATE BeCodeDUO.class SET ' . $_columnName . ' = ' . $_newValue . ' WHERE classID = ' .$_condition;
+        return $this->pdo->query($sql);
+    }
+
+    public function updateTeacherField($_columnName, $_newValue, $_condition){
+        $sql = 'UPDATE BeCodeDUO.teacher SET ' . $_columnName . ' = ' . $_newValue . ' WHERE teacherID = ' .$_condition;
+        return $this->pdo->query($sql);
+    }
+
+    public function updateStudentField($_columnName, $_newValue, $_condition){
+        $sql = 'UPDATE BeCodeDUO.student SET ' . $_columnName . ' = ' . $_newValue . ' WHERE studentID = ' .$_condition;
+        return $this->pdo->query($sql);
+    }
+
+
+
     public function deleteTeacher(int $_teacherID)
     {
         $sql = 'DELETE FROM BeCodeDUO.teacher WHERE teacherID=' .$_teacherID;

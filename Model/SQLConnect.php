@@ -36,6 +36,11 @@ class SQLConnect
         return $this->pdo->query($sql);
     }
 
+    public function getClassByID($_classID){
+        $sql = 'SELECT * FROM BeCodeDUO.class WHERE classID = ' . $_classID;
+        return $this->pdo->query($sql);
+    }
+
     public function getStudents()
     {
         $sql = 'SELECT * FROM BeCodeDUO.student ORDER BY studentID';

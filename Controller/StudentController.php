@@ -1,7 +1,7 @@
 <?php
 
 
-class ClassController
+class StudentController
 {
     public function render(array $GET, array $POST,  $_connection)
     {
@@ -14,6 +14,6 @@ class ClassController
 
         //load the view
 
-        require 'View/class.php';
+        require 'View/student.php';
     }
 }

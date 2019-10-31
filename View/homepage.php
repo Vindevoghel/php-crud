@@ -33,19 +33,7 @@
 <body>
     <?php require 'includes/header.php'?>
     <section>
-        <?php require 'select.php' ?>
-        <!--
-        <h4>Select the list you need<?php //echo $user->getName()?>,</h4>
-        <label for="submit">Go to:
-            <button type="submit" name="submit" class="studentsList">STUDENTS LIST</button>
-        </label>
-        <label for="submit">Go to:
-            <button type="submit" name="submit" class="teachersList">TEACHERS LIST</button>
-        </label>
-        <label for="submit">Got to:
-            <button type="submit" name="submit" class="classList">CLASS LIST</button>
-        </label>
-        -->
+        <?php require 'includes/homepageSelect.php' ?>
     </section>
     <?php require 'includes/footer.php'?>
 </body>

@@ -25,7 +25,7 @@
         label, h4 {
             margin-left: 40px;
         }
-        button {
+        .submitButton {
             height: 34px;
             width: 200px;
             font-size: 20px;
@@ -34,7 +34,7 @@
             border-radius: 4px;
             background-color: lightseagreen;
         }
-        button:hover {
+        .submitButton:hover {
             background-color: limegreen;
         }
     </style>

@@ -25,5 +25,5 @@
             <label for="submit">Add to list: <br>
                 <button type="submit" value="Create new student" class="submitButton">ADD STUDENT</button>
             </label>
-    </form>
+    </form><br>
 </div>

@@ -20,6 +20,11 @@ class ClassController
             $connection->deleteClass($_POST['deleteButton']);
         }
 
+        if(isset($_POST['newClassName'])) {
+            $newClassName = $_POST['className'];
+            $connection->updateField($newClassName);
+        }
+
         //you should not echo anything inside your controller - only assign vars here
         // then the view will actually display them.
 

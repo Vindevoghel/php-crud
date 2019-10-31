@@ -22,6 +22,12 @@
                         <input type="submit" id="delete" value="Delete <?php echo $row['name']; ?>">
                     </form>
                 </td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="editButton" value="<?php echo $row['classID']; ?>" />
+                        <input type="submit" id="edit" value="Delete <?php echo $row['name']; ?>">
+                    </form>
+                </td>
             </tr>
         <?php endforeach; ?>
         </tbody>

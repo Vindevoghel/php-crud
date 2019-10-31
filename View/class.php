@@ -17,11 +17,25 @@
             text-align: right;
             border: 2px solid darkolivegreen;
         }
-
         th {
             width: 200px;
             text-align: left;
             border: 2px solid darkolivegreen;
+        }
+        label, h4 {
+            margin-left: 40px;
+        }
+        button {
+            height: 34px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid darkslategray;
+            border-radius: 4px;
+            background-color: lightseagreen;
+        }
+        button:hover {
+            background-color: limegreen;
         }
     </style>
 </head>

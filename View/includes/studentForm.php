@@ -1,11 +1,3 @@
-<?php
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $newStudent = new Student($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['class']);
-    $newStudent->sendToDB($openConnection);
-}
-?>
-
 <div class="container">
     <h1 class="jumbotron-heading">Student Registration Form</h1>
     <form method="POST">
@@ -17,14 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input name="lastName" class="form-control mb-1" required>
             </label>
         </fieldset><br>
-        <fieldset><legend>Student Info</legend>
+        <fieldset><legend>E-mail</legend>
             <label for="email">E-mail: <br>
                 <input name="lastName" class="form-control mb-1" required>
             </label>
         <label for="class">Class: <br>
             <select name="class" class="form-control mb-1">
-                <?php $sqlClass = 'SELECT * FROM BeCodeDUO.class ORDER BY classID';
-                    foreach ($openConnection->query($sqlClass) as $row): ?>
+                <?php
+                    foreach ($connection->getClasses() as $row): ?>
                 <option value="<?php echo $row['classID']?>"><?php echo $row['name'] ?></option>
                 <?php endforeach; ?>
             </select>

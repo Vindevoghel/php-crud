@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="jumbotron-heading">Teachers Overview</h1>
+    <h1 class="jumbotron-heading">Teachers List</h1>
     <table>
         <thead>
             <tr>

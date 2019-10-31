@@ -22,8 +22,11 @@
             text-align: left;
             border: 2px solid darkolivegreen;
         }
-        label, h4 {
+        label {
             margin-left: 40px;
+        }
+        footer {
+            margin-left: 140px;
         }
         .submitButton {
             height: 34px;

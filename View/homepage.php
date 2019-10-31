@@ -12,8 +12,11 @@
             crossorigin="anonymous"></script>
     <title>Becode / Students, Class list</title>
     <style>
-        label, h4 {
+        label {
             margin-left: 40px;
+        }
+        footer {
+            margin-left: 140px;
         }
         td {
             width: 200px;

@@ -17,14 +17,16 @@
             text-align: right;
             border: 2px solid darkolivegreen;
         }
-
         th {
             width: 200px;
             text-align: left;
             border: 2px solid darkolivegreen;
         }
-        label, h4 {
+        label {
             margin-left: 40px;
+        }
+        footer {
+            margin-left: 140px;
         }
         button {
             height: 34px;

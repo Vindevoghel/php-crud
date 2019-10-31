@@ -27,4 +27,4 @@ if (isset($_GET['page'])) {
     $controller = new HomepageController();
 }
 
-$controller->render($_GET, $_POST);
+$controller->render($_GET, $_POST, $connection);

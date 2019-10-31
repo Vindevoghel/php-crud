@@ -7,16 +7,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link ml-5 mr-5" href="#">Home </a>
+                    <a class="nav-link ml-5 mr-5" href="/index.php?page=home">Home </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link ml-5 mr-5" href="#">Students<span class="sr-only">(current)</span></a>
+                    <a class="nav-link ml-5 mr-5" href="/index.php?page=students">Students<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link ml-5 mr-5" href="#">Teachers</a>
+                    <a class="nav-link ml-5 mr-5" href="/index.php?page=teachers">Teachers</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link ml-5 mr-5" href="#">Class Groups</a>
+                    <a class="nav-link ml-5 mr-5" href="/index.php?page=class">Class Groups</a>
                 </li>
             </ul>
         </div>

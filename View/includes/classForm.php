@@ -1,8 +1,8 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST['className'], $_POST['classLocation'])) {
     $newClass = new BeCodeClass($_POST['className'], $_POST['classLocation']);
-    $newClass->sendToDB($openConnection);
+    $newClass->sendToDB($connection);
 }
 ?>
 

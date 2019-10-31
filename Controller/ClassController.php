@@ -3,6 +3,8 @@
 
 class ClassController
 {
+
+
     public function render(array $GET, array $POST,  $_connection)
     {
         //this is just example code, you can remove the line below
@@ -13,6 +15,7 @@ class ClassController
         // then the view will actually display them.
 
         //load the view
+
 
         require 'View/class.php';
     }

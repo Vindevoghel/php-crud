@@ -1,6 +1,3 @@
-<?php if(isset($_POST['deleteButton'] === $row['name'])) {
-    $connection->deleteClass($row['name']);
-} ?>
 <table>
     <thead>
     <tr>
@@ -19,10 +16,16 @@
             <td><?php echo $row['location'] ?></td>
             <td>
                 <form method="POST">
-                    <input type="submit" name="deleteButton" value="Delete <?php echo $row['name'] ;?>">
+                    <input type="submit" name="deleteButton" value="<?php echo $row['name'] ;?>">
                 </form>
             </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
+
+<?php
+if(isset($_POST['deleteButton']) === $row['name']) {
+    $connection->deleteClass($row['name']);
+}
+

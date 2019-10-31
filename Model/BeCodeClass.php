@@ -13,8 +13,8 @@ class BeCodeClass
     }
 
     public function sendToDB($connection) {
-        $sqlCmd = 'INSERT INTO BeCodeDUO.class (name, location) VALUES (:name, :location)';
-        $connection->prepare($sqlCmd)->execute([$this->name, $this->location]);
+        $sql = 'INSERT INTO BeCodeDUO.class (name, location) VALUES (:name, :location)';
+        $connection->prepare($sql)->execute([$this->name, $this->location]);
     }
 
     /**

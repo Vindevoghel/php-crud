@@ -48,9 +48,9 @@ class SQLConnect
         return $this->pdo->query($sql);
     }
 
-    public function deleteClass(string $_className)
+    public function deleteClass(string $_classID)
     {
-        $sql = 'DELETE FROM BeCodeDUO.class WHERE name=' . $_className;
+        $sql = 'DELETE FROM BeCodeDUO.class WHERE classID=' . $_classID;
         return $this->pdo->query($sql);
     }
 
@@ -58,6 +58,18 @@ class SQLConnect
     {
         $sql = 'INSERT INTO BeCodeDUO.class (name, location) VALUES (:name, :location)';
         $this->pdo->prepare($sql)->execute([$class->getName(), $class->getLocation()]);
+    }
+
+    public function sendTeacherToDatabase(object $teacher)
+    {
+        $sql = 'INSERT INTO BeCodeDUO.teacher (first_name, last_name, email, classID) VALUES (:first_name, :last_name, :email, :classID)';
+        $this->pdo->prepare($sql)->execute([$teacher->getFirstName(), $teacher->getLastName(), $teacher->getEmail(), $teacher->getClassID()]);
+    }
+
+    public function sendStudentToDatabase(object $student)
+    {
+        $sql = 'INSERT INTO BeCodeDUO.student (first_name, last_name, email, classID) VALUES (:first_name, :last_name, :email, :classID)';
+        $this->pdo->prepare($sql)->execute([$student->getFirstName(), $student->getLastName(), $student->getEmail(), $student->getClassID()]);
     }
 
 }

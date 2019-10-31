@@ -11,6 +11,15 @@ class ClassController
 
         $connection = $_connection;
 
+        if (isset($_POST['className'], $_POST['classLocation'])) {
+            $newClass = new BeCodeClass($_POST['className'], $_POST['classLocation']);
+            $connection->sendClasstoDatabase($newClass);
+        }
+
+        if(isset($_POST['deleteButton'])) {
+            $connection->deleteClass($_POST['deleteButton']);
+        }
+
         //you should not echo anything inside your controller - only assign vars here
         // then the view will actually display them.
 

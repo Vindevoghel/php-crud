@@ -15,17 +15,12 @@
             <td><?php echo $row['name'] ?></td>
             <td><?php echo $row['location'] ?></td>
             <td>
-                <form method="POST">
-                    <input type="submit" name="deleteButton" value="<?php echo $row['name'] ;?>">
+                <form method="post">
+                    <input type="hidden" name="deleteButton" value="<?php echo $row['classID']; ?>" />
+                    <input type="submit" name ="Delete <?php echo $row['name']; ?>">
                 </form>
             </td>
         </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
-
-<?php
-/*if(isset($_POST['deleteButton']) === $row['name']) {
-    $connection->deleteClass($row['name']);
-}*/
-

@@ -1,11 +1,3 @@
-<?php
-
-if (isset($_POST['className'], $_POST['classLocation'])) {
-    $newClass = new BeCodeClass($_POST['className'], $_POST['classLocation']);
-    $connection->sendClasstoDatabase($newClass);
-}
-?>
-
 <div class="container">
     <h1 class="jumbotron-heading">Class Registration Form</h1>
     <form method="POST">

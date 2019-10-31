@@ -48,9 +48,21 @@ class SQLConnect
         return $this->pdo->query($sql);
     }
 
-    public function deleteClass(string $_classID)
+    public function deleteClass(int $_classID)
     {
         $sql = 'DELETE FROM BeCodeDUO.class WHERE classID=' . $_classID;
+        return $this->pdo->query($sql);
+    }
+
+    public function deleteTeacher(int $_teacherID)
+    {
+        $sql = 'DELETE FROM BeCodeDUO.teacher WHERE teacherID=' .$_teacherID;
+        return $this->pdo->query($sql);
+    }
+
+    public function deleteStudent (int $_studentID)
+    {
+        $sql = 'DELETE FROM BeCodeDUO.student WHERE studentID=' .$_studentID;
         return $this->pdo->query($sql);
     }
 

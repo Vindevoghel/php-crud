@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div class="container">
-    <h1 class="jumbotron-heading">Student Registration Form</h1>
+    <h1 class="jumbotron-heading">Teachers Registration Form</h1>
     <form method="POST">
         <fieldset><legend>Student Name</legend>
             <label for="firstName">First Name: <br>
@@ -33,6 +33,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="submit">Add to list: <br>
                 <button type="submit" value="Create new student" class="submitButton">ADD STUDENT</button>
             </label>
-    <
     </form>
 </div>

@@ -1,5 +1,5 @@
-<?php require 'includes/header.php' ?>
-
+<div class="container">
+    <h1 class="jumbotron-heading">Teachers Overview</h1>
     <table>
         <thead>
             <tr>
@@ -22,5 +22,4 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-
-<?php require 'includes/footer.php' ?>
+</div>

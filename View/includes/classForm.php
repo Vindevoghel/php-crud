@@ -2,7 +2,7 @@
 
 if (isset($_POST['className'], $_POST['classLocation'])) {
     $newClass = new BeCodeClass($_POST['className'], $_POST['classLocation']);
-    $newClass->sendToDB($connection);
+    $connection->sendClasstoDatabase($newClass);
 }
 ?>
 

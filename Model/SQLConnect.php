@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 //require '../keycodes.php';
 
@@ -12,7 +12,8 @@ class SQLConnect
 {
     private $pdo;
 
-    public function __construct($serverName, $dbName, $userName, $passWord) {
+    public function __construct($serverName, $dbName, $userName, $passWord)
+    {
 
         $pdo = new PDO('mysql:host=' . $serverName . ';dbname=' . $dbName, $userName, $passWord);
 
@@ -20,7 +21,7 @@ class SQLConnect
 
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-        $dbconnect=mysqli_connect($serverName, $userName, $passWord, $dbName);
+        $dbconnect = mysqli_connect($serverName, $userName, $passWord, $dbName);
 
         if ($dbconnect->connect_error) {
             die('Database connection failed: ' . $dbconnect->connect_error);
@@ -29,25 +30,34 @@ class SQLConnect
 
     }
 
-    public function getClasses() {
+    public function getClasses()
+    {
         $sql = 'SELECT * FROM BeCodeDUO.class ORDER BY classID';
         return $this->pdo->query($sql);
     }
 
-    public function getStudents() {
+    public function getStudents()
+    {
         $sql = 'SELECT * FROM BeCodeDUO.student ORDER BY studentID';
         return $this->pdo->query($sql);
     }
 
-    public function getTeachers() {
+    public function getTeachers()
+    {
         $sql = 'SELECT * FROM BeCodeDUO.teacher ORDER BY teacherID';
         return $this->pdo->query($sql);
     }
 
-    public function deleteClass($_className) {
+    public function deleteClass(string $_className)
+    {
         $sql = 'DELETE FROM BeCodeDUO.class WHERE name=' . $_className;
         return $this->pdo->query($sql);
     }
 
+    public function sendClasstoDatabase(object $class)
+    {
+        $sql = 'INSERT INTO BeCodeDUO.class (name, location) VALUES (:name, :location)';
+        $this->pdo->prepare($sql)->execute([$class->getName(), $class->getLocation()]);
+    }
 
 }

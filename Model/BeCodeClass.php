@@ -12,11 +12,6 @@ class BeCodeClass
         $this->location = $location;
     }
 
-    public function sendToDB($connection) {
-        $sql = 'INSERT INTO BeCodeDUO.class (name, location) VALUES (:name, :location)';
-        $connection->prepare($sql)->execute([$this->name, $this->location]);
-    }
-
     /**
      * @return mixed
      */

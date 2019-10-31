@@ -12,6 +12,8 @@ require 'Model/Teacher.php';
 //include all your controllers here
 require 'Controller/ClassController.php';
 require 'Controller/HomepageController.php';
+require 'Controller/StudentController.php';
+require 'Controller/TeacherController.php';
 $connection = new SQLConnect($serverName, $dbName, $userName, $passWord);
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!

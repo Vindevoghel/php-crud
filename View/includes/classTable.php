@@ -25,7 +25,7 @@
 </table>
 
 <?php
-if(isset($_POST['deleteButton']) === $row['name']) {
+/*if(isset($_POST['deleteButton']) === $row['name']) {
     $connection->deleteClass($row['name']);
-}
+}*/
 
